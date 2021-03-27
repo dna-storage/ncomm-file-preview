@@ -39,10 +39,18 @@ Other than python and python packages installed next, there are no other librari
 Our code has been written and tested on python versions 3.6 to 3.9. It has the following dependences:
 
 ```
+nose
+sphinx
+biopython
+editdistance
+statistics
+matplotlib
+scipy
+Pillow
+bitarray
+-e git+http://github.com/dna-storage/dnastorage.git@v0.9.2-alpha#egg=dnastorage
 -e git+http://github.com/dna-storage/dnapreview.git#egg=dnapreview
 ```
-
-Several other packages will be installed that are dependent on dnapreview.
 
 # Installation Guide
 
