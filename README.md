@@ -52,17 +52,23 @@ For a partial install of this repo, you simply use python 3 already installed on
 
 1. First, create a suitable virtual environment:
 
+    ```
     python3 -m venv env
     source env/bin/activate
+    ```
 
 2. Next, download or clone the repo:
 
+    ```
     git clone https://github.com/dna-storage/ncomm-file-preview
+    ```
 
 3. Install dependencies:
 
+    ```
     cd ncomm-file-preview
     pip3 install -r requirements.txt
+    ```
 
 However, this only installs some of the capabilities. The Docker image supports the full set of experiments.
 
