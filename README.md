@@ -1,21 +1,20 @@
 # File Preview Data and Analysis
 
-[![Build Status](https://travis-ci.com/jamesmtuck/DNA_stability.svg?token=rCvdBqMzwWyNvxxUUbSh&branch=main)](https://travis-ci.com/jamesmtuck/DNA_stability)
 
 - [Overview](#overview)
 - [Documentation](#documentation)
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
 - [License](#license)
-- [Issues](https://github.com/jamesmtuck/DNA_stability/issues)
+- [Issues](https://github.com/dna-storage/ncomm-file-preview/issues)
 
 # Overview
 
-Analysis of DNA stability on design of error correction codes for DNA-based data storage. 
+Scripts and data in support of "preview" operations in a pending manuscript.
 
 # Documentation
 
-As documentation for the softwarwe becomes available, it will be placed under the docs folder.
+As documentation for the software becomes available, it will be placed under the docs folder.
 
 # System Requirements
 
@@ -40,27 +39,29 @@ Other than python and python packages installed next, there are no other librari
 Our code has been written and tested on python versions 3.6 to 3.9. It has the following dependences:
 
 ```
-nose
-sphinx
-biopython
-editdistance
-statistics
-matplotlib
-numpy
-scipy
-gmpy2
-dnastorage
+-e git+http://github.com/dna-storage/dnapreview.git#egg=dnapreview
 ```
+
+Several other packages will be installed that are dependent on dnapreview.
 
 # Installation Guide
 
-## Use your local python environment
+## Use your local python environment 
 
-If you already have python 3 installed on your system, the simplest thing to do is download or checkout the code from GitHub and configure python:
+For a partial install of this repo, you simply use python 3 already installed on your system.
 
+1. First, create a suitable virtual environment:
+    python3 -m venv env
+    source env/bin/activate
+
+2. Next, download or clone the repo:
     git clone https://github.com/dna-storage/ncomm-file-preview
+
+3. Install dependencies:
     cd ncomm-file-preview
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
+
+However, this only installs some of the capabilities. The Docker image supports the full set of experiments.
 
 ## Use Docker
 
