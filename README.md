@@ -10,7 +10,11 @@
 
 # Overview
 
-Scripts and data in support of "preview" operations in a pending manuscript.
+Scripts and data in support of "preview" operations in a pending manuscript. This is the main repository and relies on two others:
+   ```
+   github.com/dna-storage/dnapreview.git
+   github.com/dna-storage/preview-cluster.git
+   ```
 
 # Documentation
 
@@ -78,7 +82,7 @@ For a partial install of this repo, you simply use python 3 already installed on
     pip3 install -r requirements.txt
     ```
 
-However, this only installs some of the capabilities. The Docker image supports the full set of experiments.
+However, this only installs some of the software. The Docker image supports the full set of experiments.
 
 ## Use Docker
 

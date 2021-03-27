@@ -1,14 +1,32 @@
-language: python
-python:
-  - "3.6"      # current default Python on Travis CI
-  - "3.7"
-  - "3.8"
-  - "3.9"
-# command to install dependencies
+# language: python
+# python:
+#   - "3.6"      # current default Python on Travis CI
+#   - "3.7"
+#   - "3.8"
+#   - "3.9"
+# # command to install dependencies
+
+# install:
+#   - pip install -r requirements.txt
+  
+# # command to run tests
+# script:
+#   - echo "Installed requirements."
+
+services:
+  - docker
+
+language: minimal
+
+os:
+  - linux
 
 install:
-  - pip install -r requirements.txt
-  
-# command to run tests
+  - docker build -t preview - < Dockerfile
+
 script:
-  - echo "Installed requirements."
+  - docker run preview /bin/bash echo "Succeeded."
+
+after_script:
+  - docker container prune -f
+  - docker image prune -f
