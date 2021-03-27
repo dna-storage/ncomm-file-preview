@@ -99,11 +99,7 @@ This will bring up a command prompt in a Linux container where commands can be e
 
 ## Run Our Analyses
 
-Run the main script this way:
-
-    python3 run.py 
-    
-This command should run to completion within a few minutes.
+Work in progress...
 
 # License
 
