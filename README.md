@@ -29,9 +29,8 @@ This code will run on a standard computer with modest RAM and compute speed. How
 
 ## Software Requirements
 ### OS Requirements
-This package is supported for macOS and Linux. The package has been tested on the following systems:
+This package is supported on Linux. The package has been tested on the following systems:
 
-+ macOS: Catalina 10.15.3
 + Linux: Ubuntu 18.04.3
 
 Note that other OSes or versions will support our software by using Docker with our provided Dockerfiles.
