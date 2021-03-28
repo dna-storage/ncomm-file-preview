@@ -34,9 +34,16 @@ This package is supported for macOS and Linux. The package has been tested on th
 
 Note that most OSes will support our software by using Docker.
 
-### Library Dependences
+### Software Dependences
 
-Other than python and python packages installed next, there are no other libraries beyond what are typically available on macOS or Linux. 
+The easiest way to satisfy all software dependences is by using Docker. If you do wish to install it in a local environment, you will need:
+
+```
+gcc 
+python3
+pip3
+make
+```
 
 ### Python Dependences
 
@@ -58,21 +65,24 @@ bitarray
 
 # Installation Guide
 
-## Use your local python environment 
+## Use your local environment 
 
 For a partial install of this repo, you simply use python 3 already installed on your system.
 
-1. First, create a suitable virtual environment:
+1. First, create a suitable virtual environment. Make directory and create a virtual environment for python:
 
     ```
+    mkdir -p preview
+    cd preview
     python3 -m venv env
     source env/bin/activate
     ```
 
-2. Next, download or clone the repo:
+2. Next, download or clone the repos:
 
-    ```
+    ```    
     git clone https://github.com/dna-storage/ncomm-file-preview
+    git clone https://github.com/dna-storage/preview-cluster.git
     ```
 
 3. Install dependencies:
