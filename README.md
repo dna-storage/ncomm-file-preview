@@ -93,9 +93,6 @@ For a partial install of this repo, you simply use python 3 already installed on
     cd ..
     cd ncomm-file-preview
     pip3 install -r requirements.txt
-    cp tools/Makefile ../
-    cd ..
-    make all
     ```
 
 However, this only installs some of the software. The Docker image supports the full set of experiments.
