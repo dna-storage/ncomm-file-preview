@@ -5,13 +5,14 @@ LABEL maintainer="james.m.tuck@gmail.com"
 
 WORKDIR /preview
 
-COPY . /preview/ncomm-file-preview    
-
 # Install the needed tools
 RUN  apt-get update \
   && apt-get clean  \
   && apt-get install -y git python3 python3-pip \
   && apt-get clean
+
+COPY . /preview/ncomm-file-preview    
+COPY ./tools/Makefile.all /preview/Makefile
 
 RUN pip3 --no-cache-dir install -r /preview/ncomm-file-preview/requirements.txt
 
