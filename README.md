@@ -7,6 +7,7 @@
 - [Installation Guide](#installation-guide)
 - [License](#license)
 - [Issues](https://github.com/dna-storage/ncomm-file-preview/issues)
+- [Data Download](#data-downloads)
 
 # Overview
 
@@ -117,6 +118,10 @@ From inside the Docker container, run the following command to perform analyses 
 ```
 make all
 ```
+
+# Data Downloads
+
+Download the experimental data from release [v0.1-alpha](https://github.com/dna-storage/ncomm-file-preview/releases/tag/v0.1-alpha).
 
 # License
 
