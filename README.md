@@ -99,7 +99,11 @@ This will bring up a command prompt in a Linux container where commands can be e
 
 ## Run Our Analyses
 
-Work in progress...
+From inside the Docker container, run the following command to perform analyses and generate the raw data:
+
+```
+make all
+```
 
 # License
 
