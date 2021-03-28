@@ -33,7 +33,7 @@ This package is supported for macOS and Linux. The package has been tested on th
 + macOS: Catalina 10.15.3
 + Linux: Ubuntu 18.04.3
 
-Note that most OSes will support our software by using Docker.
+Note that other OSes or versions will support our software by using Docker with our provided Dockerfiles.
 
 ### Software Dependences
 
@@ -66,6 +66,8 @@ bitarray
 
 # Installation Guide
 
+For a quick start, the recommended approach is to use Docker.  But, it should be possible to compile and run the software on most systems.
+
 ## Use your local environment 
 
 For a partial install of this repo, you simply use python 3 already installed on your system.
@@ -95,8 +97,6 @@ For a partial install of this repo, you simply use python 3 already installed on
     cd ncomm-file-preview
     pip3 install -r requirements.txt
     ```
-
-However, this only installs some of the software. The Docker image supports the full set of experiments.
 
 ## Use Docker
 
