@@ -81,15 +81,21 @@ For a partial install of this repo, you simply use python 3 already installed on
 2. Next, download or clone the repos:
 
     ```    
-    git clone https://github.com/dna-storage/ncomm-file-preview
+    git clone https://github.com/dna-storage/ncomm-file-preview.git
     git clone https://github.com/dna-storage/preview-cluster.git
     ```
 
-3. Install dependencies:
+3. Install software and dependencies:
 
     ```
+    cd preview-cluster
+    make -C file-sequencer-analysis init
+    cd ..
     cd ncomm-file-preview
     pip3 install -r requirements.txt
+    cp tools/Makefile ../
+    cd ..
+    make all
     ```
 
 However, this only installs some of the software. The Docker image supports the full set of experiments.
