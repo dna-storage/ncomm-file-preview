@@ -23,7 +23,7 @@ As documentation for the software becomes available, it will be placed under the
 # System Requirements
 
 ## Hardware Requirements
-This code requires only a standard computer with enough RAM and compute power to support the needed operations.
+This code will run on a standard computer with modest RAM and compute speed. However, some aspects of the analysis, such as the clustering analysis we perform, are greatly sped-up by access to a high performance computing system. Details can be found in the associated repositories, namely github.com/dna-storage/preview-cluster.git.
 
 ## Software Requirements
 ### OS Requirements
