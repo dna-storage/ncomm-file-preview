@@ -22,7 +22,7 @@ os:
   - linux
 
 install:
-  - docker build -t preview - < Dockerfile
+  - docker build -f Dockerfile -t preview .
 
 script:
   - docker run preview /bin/bash echo "Succeeded."
