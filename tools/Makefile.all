@@ -1,3 +1,12 @@
 
 all:
 	@echo "Begin analysis."
+	@echo "Show how to make the library of strands." 
+	@make -C ncomm-file-preview/library all
+	@echo "Look in /preview/ncomm-file-preview/library at *.dna files."
+
+
+
+citest:
+	@echo "Build library to show infrastructure is set up properly"
+	@make -C ncomm-file-preview/library all

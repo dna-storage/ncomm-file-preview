@@ -8,7 +8,7 @@ WORKDIR /preview
 # Install the needed tools
 RUN  apt-get update \
   && apt-get clean  \
-  && apt-get install -y git python3 python3-pip \
+  && apt-get install -y git python3 python3-pip zip wget \
   && apt-get clean
 
 COPY . /preview/ncomm-file-preview    
@@ -16,11 +16,19 @@ COPY ./tools/Makefile.all /preview/Makefile
 
 RUN pip3 --no-cache-dir install -r /preview/ncomm-file-preview/requirements.txt
 
+# Install preview cluster
 RUN cd /preview \
     && git clone https://github.com/dna-storage/preview-cluster \
     && cd /preview/preview-cluster \
     && make -C file-sequencer-analysis init
 
+# Set up data directory 
+RUN cd /preview \
+    && mkdir -p data \
+    && cd data \
+    && wget https://github.com/dna-storage/ncomm-file-preview/releases/download/v0.1-alpha/Conditions123.zip \
+    && wget https://github.com/dna-storage/ncomm-file-preview/releases/download/v0.1-alpha/AllFileConditions.zip \
+    && unzip Conditions123.zip \
+    && unzip AllFileConditions.zip \
+    && rm -Rf Conditions123.zip AllFileConditions.zip 
 
-# Set python path to include the code in the preview folder
-ENV "PYTHONPATH" "/preview/"
