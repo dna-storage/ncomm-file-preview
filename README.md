@@ -92,8 +92,8 @@ Instructions for setting up Docker.  From a command prompt, run these commands:
 
     git clone https://github.com/dna-storage/ncomm-file-preview
     cd ncomm-file-preview
-    docker build -t filepreview:1.0 .
-    docker run -it -v `pwd`:/preview filepreview:1.0 /bin/bash
+    docker build -t preview .
+    docker run -it -v `pwd`:/preview preview /bin/bash
 
 This will bring up a command prompt in a Linux container where commands can be executed. 
 
