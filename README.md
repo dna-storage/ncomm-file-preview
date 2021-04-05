@@ -91,11 +91,12 @@ For a partial install of this repo, you simply use python 3 already installed on
 3. Install software and dependencies:
 
     ```
-    cd preview-cluster
-    make -C file-sequencer-analysis init
-    cd ..
     cd ncomm-file-preview
     pip3 install -r requirements.txt
+    cd ../preview-cluster
+    make -C file-sequencer-analysis init
+    pip3 install -r file-sequencer-analysis/requirements.txt	
+
     ```
 
 ## Use Docker
@@ -119,9 +120,21 @@ From inside the Docker container, run the following command to perform analyses 
 make all
 ```
 
+The preview encoded library can be found within the container after running make. Note, this library is regenerated from scratch and may slightly differ from the one used in the paper due to differences in dependent software libraries:
+```
+/preview/ncomm-file-preview/library
+```
+
+The data produced by analyzing fastq files can be found in these two directories within the container:
+```
+/preview/fastq-decode-analysis
+/preview/fastq-cluster-analysis
+
+```
+
 # Data Downloads
 
-Download the experimental data from release [v0.1-alpha](https://github.com/dna-storage/ncomm-file-preview/releases/tag/v0.1-alpha).
+Download the raw experimental data from release [v0.1-alpha](https://github.com/dna-storage/ncomm-file-preview/releases/tag/v0.1-alpha).
 
 # License
 
