@@ -25,7 +25,7 @@ install:
   - docker build -f Dockerfile -t preview .
 
 script:
-  - docker run preview /bin/bash -c make citest
+  - docker run preview /bin/bash -c "make citest"
 
 after_script:
   - docker container prune -f
