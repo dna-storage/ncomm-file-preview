@@ -1,0 +1,25 @@
+PREVIEW_CLUSTER_PATH=/preview/preview-cluster/file-sequencer-analysis
+SCRIPTS=$(PREVIEW_CLUSTER_PATH)/scripts
+
+ALLFILECONDITIONS ?= /preview/data/AllFileConditions
+CONDITIONS123 ?= /preview/data/Conditions123
+
+
+.PHONY: all 
+
+all: align cluster analyze
+
+align:
+	$(SCRIPTS)/alignment.sh -o stripped_conditions123 -f $(ALLFILECONDITIONS) -a $(PREVIEW_CLUSTER_PATH)/config_lib/config_preview_2020/alignment_preview_11_23_2020.config
+
+cluster: align
+	$(SCRIPTS)/cluster.sh -o mapped_strands_conditions123 -s stripped_conditions123 -b $(PREVIEW_CLUSTER_PATH)/bias_lib/preview_error_primer -c $(PREVIEW_CLUSTER_PATH)/config_lib/config_preview_2020/bias_preview_11_23_2020_error.json
+
+analyze: cluster
+	python3 $(PREVIEW_CLUSTER_PATH)/real_analysis/mapped_strands_analysis_starcode.py --original_encoding_directory $(PREVIEW_CLUSTER_PATH)/bias_lib/preview_error_primer –stripped_fastq_directory stripped_conditions123 --primer_partition_top_directory mapped_strands_conditions123 --sample_distributions --output_book nat_comm_fig3c.xlsx --sample_range 1-3
+
+
+clean:
+	@rm -Rf stripped_conditions123
+	@rm -Rf mapped_strands_conditions123
+	@rm -Rf nat_comm_fig3c.xlsx

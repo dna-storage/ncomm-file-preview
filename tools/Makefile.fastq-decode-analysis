@@ -1,0 +1,114 @@
+# File paths set for Dockerfile; edit for local environment
+
+ALLFILECONDITIONS ?= /preview/data/AllFileConditions
+CONDITIONS123 ?= /preview/data/Conditions123
+TOOLS ?= /preview/ncomm-file-preview/tools
+
+F1ALL := File1Access1_merged.extendedFrags.fastq \
+         File1Access2_merged.extendedFrags.fastq \
+	 File1Preview_merged.extendedFrags.fastq \
+	 File1bgAccess_merged.extendedFrags.fastq \
+	 File1bgPreview_merged.extendedFrags.fastq
+
+F2ALL := File2Access1_merged.extendedFrags.fastq \
+         File2Access2_merged.extendedFrags.fastq \
+	 File2Preview_merged.extendedFrags.fastq \
+	 File2bgAccess_merged.extendedFrags.fastq \
+	 File2bgPreview_merged.extendedFrags.fastq
+
+F2_123 := Condition17_merged.extendedFrags.fastq \
+       	  Condition18_merged.extendedFrags.fastq \
+	  Condition20_merged.extendedFrags.fastq
+
+F3ALL := File3Access1_merged.extendedFrags.fastq \
+         File3Access2_merged.extendedFrags.fastq \
+	 File3Preview_merged.extendedFrags.fastq \
+	 File3bgAccess_merged.extendedFrags.fastq \
+	 File3bgPreview_merged.extendedFrags.fastq
+
+F4ALL := File4bgAccess_merged.extendedFrags.fastq \
+         File4bgPreview_merged.extendedFrags.fastq \
+	 File4Preview_merged.extendedFrags.fastq \
+	 File4Access1_merged.extendedFrags.fastq \
+	 File4Access2_merged.extendedFrags.fastq
+
+F1DNA := $(F1ALL:.fastq=.dna)
+F1IMAGE := $(F1DNA:.dna=.jpg)
+
+F2DNA := $(F2ALL:.fastq=.dna)
+F2IMAGE := $(F2DNA:.dna=.jpg)
+
+F2_123DNA := $(F2_123:.fastq=.dna)
+F2_123IMAGE := $(F2_123DNA:.dna=.jpg)
+
+F3DNA := $(F3ALL:.fastq=.dna) 
+F3IMAGE := $(F3DNA:.dna=.jpg)
+
+F4DNA := $(F4ALL:.fastq=.dna)
+F4IMAGE := $(F4DNA:.dna=.jpg)
+
+SAMPLE := --sample=1.00
+
+.PHONY: all file1 file2 file3 file4
+
+all: $(F1IMAGE) $(F2IMAGE) $(F3IMAGE) $(F4IMAGE) $(F2_123IMAGE)
+
+file1: $(F1IMAGE)
+file2: $(F2IMAGE) $(F2_123IMAGE)
+file3: $(F3IMAGE)
+file4: $(F4IMAGE)
+
+dna: $(F1DNA) $(F2DNA) $(F3DNA) $(F4DNA)
+f3dna: $(F3DNA)
+
+$(F1DNA): %.dna : $(ALLFILECONDITIONS)/%.fastq
+	@python3 $(TOOLS)/deepview.py --read-cnt=87980  $< --o $@ $(SAMPLE) --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA
+
+$(F1IMAGE): %.jpg : %.dna
+	@python3 $(TOOLS)/preview.py --fix-seq --use-single-primer --decode --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA --o $@ $<
+	@echo Made $@.
+
+$(F2DNA): %.dna : $(ALLFILECONDITIONS)/%.fastq
+	@python3 $(TOOLS)/deepview.py --read-cnt=88100 $< --o $@ $(SAMPLE) 
+
+$(F2IMAGE): %.jpg : %.dna
+	@python3 $(TOOLS)/preview.py --fix-seq --use-single-primer --decode --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA --o $@ $<
+	@echo Made $@.
+
+$(F2_123DNA): %.dna : $(CONDITIONS123)/%.fastq
+	@python3 $(TOOLS)/deepview.py --read-cnt=88100 $< --o $@ $(SAMPLE) 
+
+$(F2_123IMAGE): %.jpg : %.dna
+	@python3 $(TOOLS)/preview.py --fix-seq --use-single-primer --decode --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA --o $@ $<
+	@echo Made $@.
+
+$(F3DNA): %.dna : $(ALLFILECONDITIONS)/%.fastq
+	@python3 $(TOOLS)/deepview.py --read-cnt=97440 $< --o $@ $(SAMPLE) --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA 
+
+$(F3IMAGE): %.jpg : %.dna
+	@python3 $(TOOLS)/preview.py --fix-seq --use-single-primer --decode  --o $@ $< --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA
+	@echo Made $@.	    
+
+$(F4DNA): %.dna : $(ALLFILECONDITIONS)/%.fastq
+	@python3 $(TOOLS)/deepview.py --read-cnt=86420 $< --o $@ $(SAMPLE) --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA
+
+$(F4IMAGE): %.jpg : %.dna
+	@python3 $(TOOLS)/preview.py --fix-seq --use-single-primer --decode  --o $@ $< --primer5 CAGGTACGCAGTTAGCACTC --primer3 CGTGGCAATATGACTACGGA
+	@echo Made $@.
+
+
+#%.png : %.pdf
+#	sips -s format png $< --out $@
+#
+#allpng: $(F2DNA:.dna=-dna-analysis.png) $(F1DNA:.dna=-dna-analysis.png) $(F3DNA:.dna=-dna-analysis.png) $(F4DNA:.dna=-dna-analysis.png)
+
+clean:
+	@rm -Rf $(F1DNA) $(F1IMAGE) $(F2DNA) $(F2IMAGE) $(F2_123DNA) $(F2_123IMAGE) 
+	@rm -Rf $(F3DNA) $(F3IMAGE) $(F4DNA) $(F4IMAGE)
+	@rm -Rf $(F1DNA:.dna=-dna-analysis.pdf)
+	@rm -Rf $(F2DNA:.dna=-dna-analysis.pdf)
+	@rm -Rf $(F3DNA:.dna=-dna-analysis.pdf)
+	@rm -Rf $(F4DNA:.dna=-dna-analysis.pdf)
+
+#clean_file4:
+#	rm -Rf $(F4DNA) $(F4IMAGE) $(F4DNA:.dna=-dna-analysis.pdf) 

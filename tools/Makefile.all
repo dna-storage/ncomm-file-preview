@@ -1,12 +1,32 @@
 
 all:
-	@echo "Begin analysis."
-	@echo "Show how to make the library of strands." 
+	@echo "--- Encoding ---------"
+	@echo "  Make the library of strands." 
 	@make -C ncomm-file-preview/library all
-	@echo "Look in /preview/ncomm-file-preview/library at *.dna files."
+	@echo "  Look in /preview/ncomm-file-preview/library at *.dna files."
+	@echo "--- Fastq Analysis ---"
+	@make -C fastq-decode-analysis all
+	@echo "  Look in /preview/fastq-decode-analysis at *.jpg files."
+	@make -C fastq-cluster-analysis all
+	@echo "  Look in /preview/fastq-cluster-analysis/nat_comm_fig3c.xlsx"
 
+encode:
+	@echo "--- Encoding ---------"
+	@echo "  Make the library of strands." 
+	@make -C ncomm-file-preview/library all
+
+decode:
+	@echo "--- Fastq Decode Analysis ---"
+	@make -C fastq-decode-analysis all
+	@echo "  Look in /preview/fastq-decode-analysis at *.jpg files."
+
+cluster:
+	@echo "--- Fastq Cluster Analysis ---"
+	@make -C fastq-cluster-analysis all
+	@echo "  Look in /preview/fastq-cluster-analysis/nat_comm_fig3c.xlsx"
 
 
 citest:
 	@echo "Build library to show infrastructure is set up properly"
 	@make -C ncomm-file-preview/library all
+	@make -C fastq-cluster-analysis align	

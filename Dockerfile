@@ -13,14 +13,17 @@ RUN  apt-get update \
 
 COPY . /preview/ncomm-file-preview    
 COPY ./tools/Makefile.all /preview/Makefile
+COPY ./tools/Makefile.fastq-decode-analysis /preview/fastq-decode-analysis/Makefile
+COPY ./tools/Makefile.fastq-cluster-analysis /preview/fastq-cluster-analysis/Makefile
 
-RUN pip3 --no-cache-dir install -r /preview/ncomm-file-preview/requirements.txt
+RUN python3 -m pip --no-cache-dir install -r /preview/ncomm-file-preview/requirements.txt
 
 # Install preview cluster
 RUN cd /preview \
     && git clone https://github.com/dna-storage/preview-cluster \
     && cd /preview/preview-cluster \
-    && make -C file-sequencer-analysis init
+    && make -C file-sequencer-analysis init \
+    && python3 -m pip --no-cache-dir install -r /preview/preview-cluster/file-sequencer-analysis/requirements.txt
 
 # Set up data directory 
 RUN cd /preview \

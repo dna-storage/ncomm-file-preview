@@ -1,6 +1,7 @@
 #from dnastorage.arch.builder import *
 from dnastorage.system.formats import *
 from dnastorage.system.dnafile import *
+from dnastorage.util.stats import *
 from dnastorage.util.packetizedfile import *
 from dnapreview.jpeg.encode import *
 from dnapreview.jpeg.decoder import *
@@ -160,6 +161,9 @@ if __name__ == "__main__":
 
     parser.add_argument('--decode',dest="decode",required=False,action="store_true",default=False,help='decode the DNA strands into a JPEG file')
 
+    parser.add_argument('--fix-seq',dest="fix_seq",required=False,action="store_true",default=False,help='patch sequenced results (needed to correct for some minor encoding errors)')
+
+    
     parser.add_argument('--use-single-primer',dest="use_single_primer",required=False,action="store_true",default=False,help='If strands come from sequencing, use this setting to indicate a single primer.')
 
     parser.add_argument('--show',dest="show",required=False,action="store_true",default=False,help='upon successful decode show the resulting file')
@@ -215,6 +219,7 @@ if __name__ == "__main__":
                                 use_flanking_primer_for_decoding=args.use_flanking_primer,\
                                 flanking_primer3=args.flanking_primer3,\
                                 flanking_primer5=args.flanking_primer5,\
+                                reverse_primer3_from_seq=args.fix_seq\
         )
         
         if args.output == "":

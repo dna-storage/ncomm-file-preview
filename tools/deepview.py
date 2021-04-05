@@ -18,7 +18,7 @@ logger.addHandler(_ch)
 
 from dnastorage.system.formats import *
 from dnastorage.system.header import *
-from dnastorage.primer.primer_util import *
+from dnastorage.util.stats import *
 
 def reverse_complement(seq):
     if len(seq)==0:
