@@ -112,7 +112,7 @@ Instructions for setting up Docker.  From a command prompt, run these commands:
 
 This will bring up a command prompt in a Linux container where commands can be executed. 
 
-## Run Our Analyses
+## Reproduce Our Analyses
 
 From inside the Docker container, run the following command to perform analyses and generate the raw data:
 
