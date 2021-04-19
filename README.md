@@ -103,7 +103,7 @@ For a partial install of this repo, you simply use python 3 already installed on
 
 If you do not already have Docker, you will need to install Docker on your system. It is available for free for most versions of Windows, Linux, and MacOS. You may need to be the owner or administrator of the system to install Docker.
 
-Instructions for setting up Docker.  From a command prompt, run these commands:
+Instructions for setting up Docker. Note, this process may take upwards of 10 minutes, depending on the speed of your system and network. The last docker build command takes the longest time. From a command prompt, run these commands:
 
     git clone https://github.com/dna-storage/ncomm-file-preview
     cd ncomm-file-preview
