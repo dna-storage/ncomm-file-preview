@@ -114,7 +114,7 @@ This will bring up a command prompt in a Linux container where commands can be e
 
 ## Reproduce Our Analyses
 
-From inside the Docker container, run the following command to perform analyses and generate the raw data:
+From inside the Docker container, run the following command to perform analyses and generate the raw data. This command may take several hours to complete.
 
 ```
 make all
