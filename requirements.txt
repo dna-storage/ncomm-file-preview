@@ -7,6 +7,5 @@ matplotlib==3.3.0
 scipy==1.5.4
 biopython
 Pillow
-bitarray
 -e git+http://github.com/dna-storage/dnastorage.git#egg=dnastorage
 -e git+http://github.com/dna-storage/dnapreview.git#egg=dnapreview
