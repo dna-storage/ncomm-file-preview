@@ -53,14 +53,15 @@ Our code has been written and tested on python versions 3.6 to 3.9. It has the f
 ```
 nose
 sphinx
-biopython
 editdistance
 statistics
-matplotlib
-scipy
+numpy==1.19.5
+matplotlib==3.3.0
+scipy==1.5.4
+biopython
 Pillow
-bitarray
--e git+http://github.com/dna-storage/dnastorage.git@v0.9.2-alpha#egg=dnastorage
+bitarray==1.9.2
+dnastorage==0.9.4
 -e git+http://github.com/dna-storage/dnapreview.git#egg=dnapreview
 ```
 
