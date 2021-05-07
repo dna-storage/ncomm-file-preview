@@ -48,7 +48,7 @@ make
 
 ### Python Dependences
 
-Our code has been written and tested on python versions 3.6 to 3.9. It has the following dependences:
+Our python code has been written and tested on multiple python versions from 3.6 to 3.9. But, these requirements are specified to match our Dockerfile which uses python 3.6.9. It has the following dependences:
 
 ```
 nose
