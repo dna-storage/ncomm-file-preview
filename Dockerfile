@@ -20,7 +20,7 @@ RUN python3 -m pip --no-cache-dir install -r /preview/ncomm-file-preview/require
 
 # Install preview cluster
 RUN cd /preview \
-    && git clone https://github.com/dna-storage/preview-cluster \
+    && git clone https://github.com/dna-storage/preview-cluster --branch v0.1.0 \
     && cd /preview/preview-cluster \
     && make -C file-sequencer-analysis init \
     && python3 -m pip --no-cache-dir install -r /preview/preview-cluster/file-sequencer-analysis/requirements.txt
@@ -31,7 +31,10 @@ RUN cd /preview \
     && cd data \
     && wget https://github.com/dna-storage/ncomm-file-preview/releases/download/v0.1-alpha/Conditions123.zip \
     && wget https://github.com/dna-storage/ncomm-file-preview/releases/download/v0.1-alpha/AllFileConditions.zip \
+    && wget https://github.com/dna-storage/ncomm-file-preview/releases/download/v0.1-alpha/File1-12-2_merged.fastq.zip \
     && unzip Conditions123.zip \
     && unzip AllFileConditions.zip \
+    && unzip File1-12-2_merged.fastq.zip \
+    && mv File1-12-2_merged.fastq ./AllFileConditions/ \
     && rm -Rf Conditions123.zip AllFileConditions.zip 
 

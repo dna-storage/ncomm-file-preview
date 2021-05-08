@@ -106,16 +106,16 @@ If you do not already have Docker, you will need to install Docker on your syste
 
 To use a pre-built docker image, use the following command to bring up the docker image. Note, this will download > 3 GB to your system and you will benefit from a high speed network connection:
 
-docker run -it jamesmtuck/ncomm-file-preview /bin/bash
+    docker run -it jamesmtuck/ncomm-file-preview /bin/bash
 
 Or, you may build your own image following these steps. Note, this process may take upwards of 10 minutes, depending on the speed of your system and network. The last docker build command takes the longest time.
 
     git clone https://github.com/dna-storage/ncomm-file-preview
     cd ncomm-file-preview
     docker build -t preview .
-    docker run -it -v `pwd`:/preview preview /bin/bash
+    docker run -it -v `pwd`:/host preview /bin/bash
 
-This will bring up a command prompt in a Linux container where commands can be executed. 
+This will bring up a command prompt in a Linux container where commands can be executed. You can copy produces files back out to the host computer at /host.
 
 ## Reproduce Our Analyses
 

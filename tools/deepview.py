@@ -245,7 +245,7 @@ print((count, total_len))
 orig_strand_cnt = len(strands)
 
 from datetime import datetime
-random.seed(0)
+random.seed(17)
 if args.read_cnt > 0:
     strands = random.sample(strands,int(args.read_cnt))
 elif args.sample < 1:

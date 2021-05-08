@@ -8,7 +8,8 @@ F1ALL := File1Access1_merged.extendedFrags.fastq \
          File1Access2_merged.extendedFrags.fastq \
 	 File1Preview_merged.extendedFrags.fastq \
 	 File1bgAccess_merged.extendedFrags.fastq \
-	 File1bgPreview_merged.extendedFrags.fastq
+	 File1bgPreview_merged.extendedFrags.fastq \
+	 File1-12-2_merged.fastq
 
 F2ALL := File2Access1_merged.extendedFrags.fastq \
          File2Access2_merged.extendedFrags.fastq \
