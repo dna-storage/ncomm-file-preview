@@ -8,7 +8,7 @@
 - [License](#license)
 - [Issues](https://github.com/dna-storage/ncomm-file-preview/issues)
 - [Data Download](#data-downloads)
-- [Acknowledgment] (#acknowledgment)
+- [Acknowledgment](#acknowledgment)
 
 # Overview
 
