@@ -1,5 +1,6 @@
 # File Preview Data and Analysis
 
+[![DOI](https://zenodo.org/badge/351920392.svg)](https://zenodo.org/badge/latestdoi/351920392)
 [![Build Status](https://travis-ci.com/dna-storage/ncomm-file-preview.svg?branch=main)](https://travis-ci.com/dna-storage/ncomm-file-preview)
 
 - [Overview](#overview)
