@@ -8,5 +8,5 @@ scipy==1.5.4
 biopython
 Pillow
 bitarray==1.9.2
-dnastorage==0.9.4
+dnastorage==0.9.5
 -e git+http://github.com/dna-storage/dnapreview.git#egg=dnapreview
