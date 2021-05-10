@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.com/dna-storage/ncomm-file-preview.svg?branch=main)](https://travis-ci.com/dna-storage/ncomm-file-preview)
 
 - [Overview](#overview)
-- [Documentation](#documentation)
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
 - [License](#license)
