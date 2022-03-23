@@ -16,7 +16,6 @@ authors:
     family-names: Volkel
     email: kvolkel@ncsu.edu
     affiliation: NC State University
-version: 1.0.0
-doi: 
-date-released: 2017-12-18
+version: 1.0
+doi: https://zenodo.org/badge/latestdoi/351920392
 url: "https://github.com/dna-storage/ncomm-file-preview"
