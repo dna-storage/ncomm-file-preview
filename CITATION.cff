@@ -4,8 +4,7 @@
 cff-version: 1.2.0
 title: ncomm-file-preview
 message: >-
-  If you use our repository in whole or part, please
-  cite us.
+  If you use this software, please cite it.
 type: software
 authors:
   - given-names: James Murray
