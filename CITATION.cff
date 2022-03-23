@@ -1,0 +1,19 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ncomm-file-preview
+message: >-
+  If you use our repository in whole or part, please
+  cite us.
+type: software
+authors:
+  - given-names: James Murray
+    family-names: Tuck
+    name-suffix: III
+    email: jtuck@ncsu.edu
+    affiliation: NC State University
+    orcid: 'https://orcid.org/0000-0001-8975-0294'
+  - given-names: Kevin Volkel
+    email: kvolkel@ncsu.edu
+    affiliation: NC State University
