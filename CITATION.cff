@@ -7,12 +7,12 @@ message: >-
   If you use this software, please cite it.
 type: software
 authors:
-  - given-names: James Murray
+  - given-names: James
     family-names: Tuck
-    name-suffix: III
     email: jtuck@ncsu.edu
     affiliation: NC State University
     orcid: 'https://orcid.org/0000-0001-8975-0294'
-  - given-names: Kevin Volkel
+  - given-names: Kevin
+    family-names: Volkel
     email: kvolkel@ncsu.edu
     affiliation: NC State University
